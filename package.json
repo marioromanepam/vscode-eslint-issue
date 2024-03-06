@@ -1,0 +1,20 @@
+{
+  "name": "eslint-test",
+  "version": "0.0.0",
+  "license": "ISC",
+  "private": true,
+  "workspaces": [
+    "src/contexts/*",
+    "src/apps/*"
+  ],
+  "scripts": {
+    "lint": "yarn lint:contexts && yarn lint:apps",
+    "lint:contexts": "npx lerna run lint --scope @context/* --since $(git describe --tags --abbrev=0) --stream",
+    "lint:apps": "npx lerna run lint --scope @app/* --since $(git describe --tags --abbrev=0) --stream",
+    "build": "npx lerna run build --since $(git describe --tags --abbrev=0)",
+    "build:all": "npx lerna run build --concurrency 5"
+  },
+  "devDependencies": {
+    "lerna": "^5.6.2"
+  }
+}

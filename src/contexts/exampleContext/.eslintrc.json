@@ -1,0 +1,60 @@
+{
+    "extends": [
+        "airbnb-base",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "strict": [2, "global"],
+        "no-var": 0,
+        "one-var": [2, {
+            "initialized": "always",
+            "uninitialized": "never"
+        }],
+        "comma-dangle": [2, "never"],
+        "indent": [2, 4, {
+            "CallExpression": {
+                "arguments": "first"
+            },
+            "FunctionDeclaration": {
+                "parameters": "first"
+            }
+        }],
+        "max-len": [2, {
+            "code": 140
+        }],
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": "warn",
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": "error"
+    },
+    "parser": "@typescript-eslint/parser",
+    "env": {},
+    "overrides": [
+        {
+            "files": ["*.model.ts"],
+            "rules": {
+                "no-template-curly-in-string": 0
+            }
+        }
+    ],
+    "settings": {
+        "import/core-modules": ["terser-webpack-plugin"],
+        "import/resolver": {
+            "alias": {
+                "map": [
+                    ["@src", "./src"],
+                    ["@tests", "./tests"]
+                ],
+                "extensions": [
+                    ".ts", ".js"
+                ]
+            }
+        }
+    }
+}

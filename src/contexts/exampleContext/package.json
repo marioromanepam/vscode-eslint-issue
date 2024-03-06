@@ -1,0 +1,45 @@
+{
+    "name": "@context/example-context",
+    "version": "0.0.0",
+    "license": "ISC",
+    "private": true,
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "files": [
+      "./dist/"
+    ],
+    "typesVersions": {
+      "*": {
+        "dist/index.d.ts": [
+          "dist/index.d.ts"
+        ],
+        "*": [
+          "dist/*"
+        ]
+      }
+    },
+    "exports": {
+      ".": "./dist/index.js",
+      "./": "./dist/"
+    },
+    "scripts": {
+      "lint": "npx eslint . --ext .js,.ts",
+      "build": "yarn build:clean && yarn build:tsc",
+      "build:clean": "rm -rf dist",
+      "build:tsc": "tsc --skipLibCheck -p tsconfig.dist.json && tscpaths -p tsconfig.dist.json -s ./src -o ./dist"
+    },
+    "devDependencies": {
+      "@types/node": "^18.7.9",
+      "@typescript-eslint/eslint-plugin": "^5.33.1",
+      "@typescript-eslint/parser": "^5.33.1",
+      "eslint": "^8.22.0",
+      "eslint-config-airbnb-base": "^15.0.0",
+      "eslint-import-resolver-alias": "^1.1.2",
+      "eslint-plugin-import": "^2.25.4",
+      "eslint-plugin-module-resolver": "^1.4.0",
+      "tscpaths": "^0.0.9",
+      "typescript": "^4.5.5",
+      "typescript-eslint": "^0.0.1-alpha.0"
+    }
+}
+  

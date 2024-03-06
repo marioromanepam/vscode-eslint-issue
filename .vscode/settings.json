@@ -1,0 +1,6 @@
+{
+    "eslint.workingDirectories": [
+        "src/contexts/exampleContext",
+        "src/apps/exampleApp"
+    ]
+}
